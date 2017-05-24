@@ -49,7 +49,10 @@ Route::get('cart/update/{producto}/{cantidad}',[
     ]);
 
 Route::resource('log','LogController');
-Route::get('logout','LogController@logout');
+Route::get('logout',[
+    'as'=>'logout',
+    'uses'=>'LogController@logout'
+    ]);
 
 Route::get('order-detail',[
 

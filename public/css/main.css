@@ -1,13 +1,4 @@
-body
-{
-	background: orange;
-	font-family: 'Ravi Prakash', cursive;
 
-}
-h1,h2,h3,h4,h5,h6,p
-{
-	font-family: 'Indie Flower', cursive;
-}
 /* Nav-----*/
 .main-title
 {
@@ -16,15 +7,11 @@ h1,h2,h3,h4,h5,h6,p
 }
 /* Footer-----*/
 
-footer{
-	background: #222;
-	text-align: center;
-}
-ul.redes li
+.redes 
 {
 	display: inline-block;
 }
-ul.redes li a
+.redes 
 {
 	color: orange;
 }
@@ -42,11 +29,7 @@ position: relative;
 max-width: 100%;
 width: 100%;
 }
-img {
-width: 100%;
-max-width: 100%;
-height: auto;
-}
+
 .white-panel {
 position: absolute;
 background: white;

@@ -44,8 +44,7 @@ class LogController extends Controller
         $cart = \Session::get('cart');
         if(Auth::attempt(['email'=>$request['email'],'password' => $request['password']]) and count($cart)) 
         {
-            return "Detalle Pedido";
-            
+             return redirect()->route('order-detail');            
            
         }else{
             if(Auth::attempt(['email'=>$request['email'],'password' => $request['password']])){
