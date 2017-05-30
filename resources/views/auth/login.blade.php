@@ -35,7 +35,7 @@
                 <a class="clr-1 it bold top-1" href="">Olvide la Contraseña</a> 
             </div>
             <div class="form-group">
-            <a class="btn btn-warning" href="">Crear una Cuenta</a> 
+            <a class="btn btn-warning" href="{{route('user.create')}}"><i class="fa fa-user"></i> Crear una Cuenta</a> 
             </div>
         {!!Form::close()!!}     
         </div>    

@@ -59,3 +59,9 @@ Route::get('order-detail',[
     'as'=>'order-detail',
     'uses'=>'controladorCart@orderDetail'
     ]);
+
+Route::get('createUser',[
+    'as'=>'createUser',
+    'uses'=>'controladorUser@create'
+    ]);
+Route::resource('user','controladorUser');

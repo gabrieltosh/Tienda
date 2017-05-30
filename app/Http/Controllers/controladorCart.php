@@ -69,5 +69,4 @@ class controladorCart extends Controller
              return redirect()->route('log.index');
         }
     }
-
 }
