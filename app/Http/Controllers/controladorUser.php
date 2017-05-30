@@ -48,7 +48,7 @@ class controladorUser extends Controller
         $usuario->apellido=$request->apellido;
         $usuario->email=$request->email;
         $usuario->usuario=$request->usuario;
-        $usuario->password=$request->password;
+        $usuario->password=\Hash::make($request->password);
         $usuario->tipo=$tipo;
         $usuario->activo=$activo;
         $usuario->direccion=$request->direccion;

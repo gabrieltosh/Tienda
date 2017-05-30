@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Categorias extends Model
 {
-      protected $fillable = [
+      protected $fillable  = [
         'nombre','slug','descripcion','color'
     ];
 

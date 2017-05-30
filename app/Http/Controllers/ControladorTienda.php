@@ -21,4 +21,8 @@ class ControladorTienda extends Controller
        // dd($producto);
        return view('tienda.mostrar',compact('producto'));
     }
+    public function admin()
+    {
+        return view('admin.admin');
+    }
 }

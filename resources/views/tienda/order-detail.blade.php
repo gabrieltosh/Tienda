@@ -49,7 +49,7 @@
 			<h3><span class="label label-success">Total: ${{number_format($total,2)}}</span></h3><hr>
 			<p>
 				<a href="{{route('cart-show')}}" class="btn btn-primary"><i class="fa fa-chevron-circle-left fa-2x"></i>  Regresar</a>
-				<a href="{{route('cart-show')}}" class="btn btn-warning">Pagar con  <i class="fa fa-cc-paypal fa-2x"></i></a>
+				<a href="{{route('payment')}}" class="btn btn-warning">Pagar con  <i class="fa fa-cc-paypal fa-2x"></i></a>
 			</p>
 			</div>
 			</div>

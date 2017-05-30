@@ -65,3 +65,22 @@ Route::get('createUser',[
     'uses'=>'controladorUser@create'
     ]);
 Route::resource('user','controladorUser');
+
+Route::get('Enatex/admin',[
+    'as' => 'admin',
+    'uses' => 'ControladorTienda@admin'
+]);
+
+//paypal
+//envio de Pedido
+Route::get('payment',array(
+    'as' => 'payment',
+    'uses' => 'controladorPaypal@postPayment',
+));
+
+//Paypal redirecciona a esta ruta
+
+Route::get('payment/status',array(
+    'as' => 'payment.status',
+    'uses' => 'controladorPaypal@getPaymentStatus',
+));

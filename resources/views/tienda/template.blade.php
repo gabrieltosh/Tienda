@@ -51,6 +51,7 @@ $(document)
 <![endif]-->
 </head>
 <body>
+
    @include('tienda.parcial.nav')
 
  

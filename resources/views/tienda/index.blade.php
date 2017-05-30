@@ -4,6 +4,9 @@
 @include('tienda.parcial.nav-slider')
 
 <section id="content">
+      @if(\Session::has('message'))
+        @include('alerts.message')
+    @endif
     <div class="container_24">
     @foreach($productos as $producto)
       <div class="grid_5 prefix_1">
