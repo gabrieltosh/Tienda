@@ -84,3 +84,7 @@ Route::get('payment/status',array(
     'as' => 'payment.status',
     'uses' => 'controladorPaypal@getPaymentStatus',
 ));
+
+//ADMIN
+Route::resource('admin/categoria','Admin\controladorCategoria');
+Route::resource('admin/login','Admin\controladorLogin');
