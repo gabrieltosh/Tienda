@@ -29,7 +29,7 @@ class controladorPaypal extends BaseController
 
     public function __construct()
     {
-        // setup PayPal api context
+        // configuracion del contexto de paypal
         $paypal_conf = \Config::get('paypal');
         $this->_api_context = new ApiContext(new OAuthTokenCredential($paypal_conf['client_id'], $paypal_conf['secret']));
         $this->_api_context->setConfig($paypal_conf['settings']);
@@ -99,10 +99,10 @@ class controladorPaypal extends BaseController
                 break;
             }
         }
-        // add payment ID to session
+        // añadir la sesion de payment ID 
         \Session::put('paypal_payment_id', $payment->getId());
         if(isset($redirect_url)) {
-            // redirect to paypal
+            // redirecciona a paypal
             return \Redirect::away($redirect_url);
         }
         return \Redirect::route('cart-show')
@@ -110,9 +110,9 @@ class controladorPaypal extends BaseController
     }
     public function getPaymentStatus()
     {
-        // Get the payment ID before session clear
+        // toma el id para iniciar la session de paypal
         $payment_id = \Session::get('paypal_payment_id');
-        // clear the session payment ID
+        // borra la session
         \Session::forget('paypal_payment_id');
         $payerId = \Input::get('PayerID');
         $token = \Input::get('token');
@@ -122,15 +122,14 @@ class controladorPaypal extends BaseController
                 ->with('message', 'Hubo un problema al intentar pagar con Paypal');
         }
         $payment = Payment::get($payment_id, $this->_api_context);
-        // PaymentExecution object includes information necessary 
-        // to execute a PayPal account payment. 
-        // The payer_id is added to the request query parameters
-        // when the user is redirected from paypal back to your site
+        // PaymentExecution el objeto incluye informacion nesesaria 
+        // ejecuata la cuenta de paypal
+        // el payer_id 
+        // cuando el usuario termina con paypal es redireccionado a u sitio
         $execution = new PaymentExecution();
         $execution->setPayerId(\Input::get('PayerID'));
         //Execute the payment
-        $result = $payment->execute($execution, $this->_api_context);
-        //echo '<pre>';print_r($result);echo '</pre>';exit; // DEBUG RESULT, remove it later
+        $result = $payment->execute($execution, $this->_api_context)
         if ($result->getState() == 'approved') { // payment made
             // Registrar el pedido --- ok
             // Registrar el Detalle del pedido  --- ok

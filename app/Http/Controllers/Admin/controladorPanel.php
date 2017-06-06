@@ -3,15 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use Auth;
-use App\User;
-use Session;
-use App\Http\Controllers\Controller;
+
 use App\Http\Requests;
-use App\Http\Requests\LoginRequest;
+use App\Http\Controllers\Controller;
 
-
-class controladorLogin extends Controller
+class controladorPanel extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,7 +16,7 @@ class controladorLogin extends Controller
      */
     public function index()
     {
-        return view('admin.login');
+        return view('admin.template');
     }
 
     /**
@@ -39,33 +35,10 @@ class controladorLogin extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(LoginRequest $request)
+    public function store(Request $request)
     {
-        $email=$request->email;
-        $password=$request->password;
-        //return view('admin.categorias.index',compact('email','password'));   
-        $tipo='admin';
-        $tipo2='usuario';
-         if(Auth::attempt(['email'=>$email,'password' =>$password, 'tipo'=>$tipo])) 
-        {
-            return view('admin.template');
-        }else
-        {
-            if(Auth::attempt(['email'=>$request['email'],'password'=>$request['password'], 'tipo'=>$tipo2]))
-            {
-                Session::flash('message-error','No eres un administrador');  
-                return redirect()->route('panel.login.index');
-            }else
-            {
-                Session::flash('message-error','Datos incorrectos');
-                return redirect()->route('panel.login.index');
-            }       
-        }
+        //
     }
-     public function logout(){
-        Auth::logout();
-        return view('admin.login');
-;    }
 
     /**
      * Display the specified resource.

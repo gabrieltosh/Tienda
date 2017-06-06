@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Categorias;
-
+use Session;
 class controladorCategoria extends Controller
 {
     /**
@@ -19,7 +19,7 @@ class controladorCategoria extends Controller
     {
         $categorias=Categorias::all();
         //dd($categorias);
-        return view('admin.template');
+        return view('admin.categorias.index',compact('categorias'));
     }
 
     /**
@@ -29,7 +29,7 @@ class controladorCategoria extends Controller
      */
     public function create()
     {
-        //
+        return view('admin,categorias.form');
     }
 
     /**
@@ -40,7 +40,7 @@ class controladorCategoria extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**

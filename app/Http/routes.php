@@ -86,5 +86,11 @@ Route::get('payment/status',array(
 ));
 
 //ADMIN
-Route::resource('admin/categoria','Admin\controladorCategoria');
-Route::resource('admin/login','Admin\controladorLogin');
+Route::resource('panel/categoria','Admin\controladorCategoria');
+Route::resource('panel/login','Admin\controladorLogin');
+Route::get('cerrar',[
+    'as'=>'cerrar',
+    'uses'=>'Admin\controladorLogin@logout'
+    ]);
+Route::resource('panel/usuario','Admin\controladorUsuario');
+Route::resource('panel','Admin\controladorPanel');
