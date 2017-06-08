@@ -29,14 +29,17 @@
                                   <td>{{$categoria->color}}</td>
                                   <td>{{$categoria->created_at}}</td> 
                                   <td> 
-                                    <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                    <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                        {!!Form::open(['route'=>['panel.categoria.destroy', $categoria], 'method' => 'DELETE'])!!}
+                                        <a href="{{route('panel.categoria.edit',$categoria)}}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                                        <button href="" onclick="return confirm('Eliminar Registro?')" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                      {!!Form::close()!!}
                                   </td>
                              </tr> 
                               @endforeach
                               </tbody>
                           </table>
                       </div><!-- /content-panel -->
+                      <div class="text-center">{!!$categorias->render()!!}</div>
                   </div><!-- /col-md-12 -->
               </div><!-- /row -->
 @stop

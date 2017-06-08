@@ -32,8 +32,8 @@
                           <span>Productos</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="calendar.html">Mostrar Productos</a></li>
-                          <li><a  href="gallery.html">Añadir Producto</a></li>
+                          <li><a  href="{{route('panel.producto.index')}}">Mostrar Productos</a></li>
+                          <li><a  href="{{route('panel.producto.create')}}">Añadir Producto</a></li>
                       </ul>
                   </li>
                   <li class="sub-menu">
@@ -43,7 +43,7 @@
                       </a>
                       <ul class="sub">
                           <li><a  href="{{route('panel.categoria.index')}}">Mostrar Categorias</a></li>
-                          <li><a  href="login.html">Añadir Categoria</a></li>
+                          <li><a  href="{{route('panel.categoria.create')}}">Añadir Categoria</a></li>
                       </ul>
                   </li>
                   <li class="sub-menu">

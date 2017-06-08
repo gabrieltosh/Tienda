@@ -12,29 +12,35 @@
 */
 
 
+Route::bind('producto',function($slug)
+{
+    return App\Productos::where('slug',$slug)->first();
+});
+Route::bind('categoria',function($categoria){
+    return App\Categorias::find($categoria);
+});
+
 Route::get('/',[
     'as' => 'home',
     'uses' => 'ControladorTienda@index'
 ]);
 
+
 Route::get('producto/{slug}',[
     'as' => 'producto-detalle',
     'uses'=> 'ControladorTienda@show'
 ]);
+
 //Carito
 Route::get('cart/show',[
     'as' => 'cart-show',
     'uses'=> 'controladorCart@show'
 ]);
-
-Route::bind('producto',function($slug)
-{
-	return App\Productos::where('slug',$slug)->first();
-});
 Route::get('cart/add/{producto}',[
 		'as'=>'cart-add',
 		'uses'=>'controladorCart@add'
 	]);
+
 Route::get('cart/delete/{producto}',[
         'as'=>'cart-delete',
         'uses'=>'controladorCart@delete'
@@ -86,6 +92,7 @@ Route::get('payment/status',array(
 ));
 
 //ADMIN
+Route::resource('panel/producto','Admin\controladorProducto');
 Route::resource('panel/categoria','Admin\controladorCategoria');
 Route::resource('panel/login','Admin\controladorLogin');
 Route::get('cerrar',[
@@ -94,3 +101,5 @@ Route::get('cerrar',[
     ]);
 Route::resource('panel/usuario','Admin\controladorUsuario');
 Route::resource('panel','Admin\controladorPanel');
+//Injeccion de Dependencias de Categoria
+

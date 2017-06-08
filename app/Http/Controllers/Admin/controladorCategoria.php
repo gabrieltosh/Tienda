@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+
 use App\Categorias;
 use Session;
 class controladorCategoria extends Controller
@@ -17,7 +18,7 @@ class controladorCategoria extends Controller
      */
     public function index()
     {
-        $categorias=Categorias::all();
+        $categorias=Categorias::orderBy('id','desc')->paginate(5);
         //dd($categorias);
         return view('admin.categorias.index',compact('categorias'));
     }
@@ -29,7 +30,7 @@ class controladorCategoria extends Controller
      */
     public function create()
     {
-        return view('admin,categorias.form');
+        return view('admin.categorias.create');
     }
 
     /**
@@ -39,9 +40,20 @@ class controladorCategoria extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        
-    }
+    {  
+          $this->validate($request, [
+                'nombre' => 'required|max:255',
+                'color' => 'required'
+            ]);
+        $categoria=Categorias::create([
+            'nombre'=>$request->get('nombre'),
+            'slug'=>str_slug($request->get('nombre')),
+            'descripcion'=>$request->get('descripcion'),
+            'color'=>$request->get('color'),
+            ]);
+        Session::flash('message','El registro fue exitoso');
+        return redirect()->route('panel.categoria.index');
+        }
 
     /**
      * Display the specified resource.
@@ -49,9 +61,9 @@ class controladorCategoria extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Categorias $categoria)
     {
-        //
+        return $categoria;
     }
 
     /**
@@ -60,9 +72,9 @@ class controladorCategoria extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Categorias $categoria)
     {
-        //
+        return view('admin.categorias.edit',compact('categoria'));
     }
 
     /**
@@ -72,9 +84,13 @@ class controladorCategoria extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Categorias $categoria)
     {
-        //
+        $categoria->fill($request->all());
+        $categoria->slug = str_slug($request->get('nombre'));
+        $update = $categoria->save();
+        Session::flash('message','La Actualizacion fue exitosa');
+        return redirect()->route('panel.categoria.index');
     }
 
     /**
@@ -83,8 +99,10 @@ class controladorCategoria extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Categorias $categoria)
     {
-        //
+        $deleted=$categoria->delete();
+        Session::flash('message','Categoria Eliminada Corectamente');
+        return redirect()->route('panel.categoria.index');
     }
 }
