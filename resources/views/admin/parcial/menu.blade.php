@@ -6,7 +6,8 @@
                           <img src="http://slipkorn.files.wordpress.com/2007/07/avatar-south-park.jpg" class="img-circle" width="60">
                       </a>
                   </p>
-              	  <h5 class="centered">{!!Auth::user()->nombre!!} {!!Auth::user()->apellido!!}</h5>
+              	  <h5 class="centered">{!!strtoupper(Auth::user()->nombre)!!} {!!strtoupper(Auth::user()->apellido)!!}</h5>
+                  <h5 class="centered">{!!ucfirst(Auth::user()->usuario)!!}</h5>
               	  	
                   <li class="mt">
                       <a href="{{route('panel.index')}}">

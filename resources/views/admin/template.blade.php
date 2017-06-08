@@ -13,13 +13,13 @@
     <link rel="stylesheet" href="{{asset('../admin/css/bootstrap.css')}}">
     <!--external css-->
     <link rel="stylesheet" href="{{asset('../admin/font-awesome/css/font-awesome.css')}}">
-    <!-- Custom styles for this template -->
+    <!-- Custom styles for this template 
     <link rel="stylesheet" type="text/css" href="{{asset('../admin/js/bootstrap-datepicker/css/datepicker.css')}}" />
-    <link rel="stylesheet" type="text/css" href="{{asset('../admin/js/bootstrap-daterangepicker/daterangepicker.css')}}" />
-        
+    <link rel="stylesheet" type="text/css" href="{{asset('../admin/js/bootstrap-daterangepicker/daterangepicker.css')}}" />-->
      <link rel="stylesheet" href="{{asset('../admin/css/style.css')}}">
-
+     <link rel="stylesheet" href="{{asset('../admin/css/zabuto_calendar.css')}}">
      <link rel="stylesheet" href="{{asset('../admin/css/style-responsive.css')}}">
+      <link rel="stylesheet" href="{{asset('../admin/js/gritter/css/jquery.gritter.css')}}">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -73,6 +73,6 @@
     <script src="{{asset('../admin/js/bootstrap-datepicker/js/bootstrap-datepicker.js')}}"></script>
         <script src="{{asset('../admin/js/bootstrap-daterangepicker/date.js')}}"></script>       <script src="{{asset('../admin/js/bootstrap-inputmask/bootstrap-inputmask.min.js')}}"></script>
       <script src="{{asset('../admin/js/form-component.js')}}"></script>
-                           
+        <script src="{{asset('../admin/js/zabuto_calendar.js')}}"></script>
   </body>
 </html>

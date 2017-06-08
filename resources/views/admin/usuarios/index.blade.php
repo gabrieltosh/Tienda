@@ -40,19 +40,23 @@
                                       <td><span class="label label-info label-mini">activo</span></td>
                                       <td>{{$usuario->direccion}}</td>
                                       <td>{{$usuario->created_at}}</td>
-                                      <td>
+                                      <td>           
+                                         {!!Form::open(['route'=>['panel.usuario.destroy', $usuario], 'method' => 'DELETE'])!!}
+                                          <a href="{{route('panel.usuario.edit',$usuario)}}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                                          <button href="" onclick="return confirm('Eliminar Registro?')" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
                                           <button class="btn btn-danger btn-xs"><i class="fa fa-times"></i></button>
-                                          <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                          <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                          {!!Form::close()!!}
                                       </td>   
                                   @else
                                       <td><span class="label label-warning label-mini">Desactivado</span></td>
                                       <td>{{$usuario->direccion}}</td>
                                       <td>{{$usuario->created_at}}</td>
                                       <td>
+                                          {!!Form::open(['route'=>['panel.usuario.destroy', $usuario], 'method' => 'DELETE'])!!}
+                                          <a href="{{route('panel.usuario.edit',$usuario)}}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                                          <button href="" onclick="return confirm('Eliminar Registro?')" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
                                           <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                                          <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                          <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                          {!!Form::close()!!}
                                       </td>
                                   @endif           
                               </tr>
@@ -60,6 +64,7 @@
                               </tbody>
                           </table>
                       </div><!-- /content-panel -->
+                      <div class="text-center">{!!$usuarios->render()!!}</div>
                   </div><!-- /col-md-12 -->
               </div><!-- /row -->
 @stop

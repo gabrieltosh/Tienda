@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\UsuarioRequest;
 use App\Http\Controllers\Controller;
 use App\User;
 use Session;
@@ -17,7 +18,7 @@ class controladorUsuario extends Controller
      */
     public function index()
     {
-        $usuarios=User::all();
+        $usuarios=User::OrderBy('id','desc')->paginate(5);
         return view('admin.usuarios.index',compact('usuarios'));
    }
 
@@ -28,7 +29,7 @@ class controladorUsuario extends Controller
      */
     public function create()
     {
-        return view('admin.usuarios.form');
+        return view('admin.usuarios.create');
     }
 
     /**
@@ -37,7 +38,7 @@ class controladorUsuario extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UsuarioRequest $request)
     {
         $tipo='admin';
         $activo=1;
@@ -46,7 +47,7 @@ class controladorUsuario extends Controller
         $usuario->apellido=$request->apellido;
         $usuario->email=$request->email;
         $usuario->usuario=$request->usuario;
-        $usuario->password=\Hash::make($request->password);
+        $usuario->password=$request->password;
         $usuario->tipo=$tipo;
         $usuario->activo=$activo;
         $usuario->direccion=$request->direccion;
@@ -61,9 +62,9 @@ class controladorUsuario extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $usuario)
     {
-        //
+        return $usuario;
     }
 
     /**
@@ -72,9 +73,9 @@ class controladorUsuario extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $usuario)
     {
-        //
+        return view('admin.usuarios.edit',compact('usuario'));
     }
 
     /**
@@ -84,9 +85,16 @@ class controladorUsuario extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $usuario)
     {
-        //
+        $activo=1;
+        $tipo='admin';
+        $usuario->fill($request->all());
+        $usuario->activo=$activo;
+        $usuario->tipo=$tipo;
+        $update=$usuario->save();
+        Session::flash('message','Registro Actualizado Correctamente');
+        return redirect()->route('panel.usuario.index');
     }
 
     /**
@@ -95,8 +103,10 @@ class controladorUsuario extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $usuario)
     {
-        //
+        $deleted=$usuario->delete();
+        Session::flash('message','Registro Eliminado Correctamente');
+        return redirect()->route('panel.usuario.index');
     }
 }

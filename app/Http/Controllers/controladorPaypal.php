@@ -129,7 +129,7 @@ class controladorPaypal extends BaseController
         $execution = new PaymentExecution();
         $execution->setPayerId(\Input::get('PayerID'));
         //Execute the payment
-        $result = $payment->execute($execution, $this->_api_context)
+        $result = $payment->execute($execution, $this->_api_context);
         if ($result->getState() == 'approved') { // payment made
             // Registrar el pedido --- ok
             // Registrar el Detalle del pedido  --- ok

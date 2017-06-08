@@ -48,7 +48,7 @@ class controladorLogin extends Controller
         $tipo2='usuario';
          if(Auth::attempt(['email'=>$email,'password' =>$password, 'tipo'=>$tipo])) 
         {
-            return view('admin.template');
+            return redirect()->route('panel.index');
         }else
         {
             if(Auth::attempt(['email'=>$request['email'],'password'=>$request['password'], 'tipo'=>$tipo2]))

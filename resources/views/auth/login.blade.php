@@ -13,7 +13,7 @@
            
             <div class="jumbotron">
         {!!Form::open(['route'=>'log.store','method'=>'POST', 'role'=>'form'])!!}    
-         @include('tienda.parcial.errors') 
+            @include('tienda.parcial.errors') 
             @include('alerts.errors')           
             <div class="form-group" >
                 <label for="email" class="">Email</label><br>

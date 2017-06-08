@@ -1,18 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Http\Requests\UsuarioRequest;
 use App\Http\Controllers\Controller;
+use App\Order;
+use App\OrderItem;
 use App\User;
-use Session;
-use Redirect;
-use Illuminate\Routing\Route;
-
-class controladorUser extends Controller
+use App\Productos;
+use App\Categorias;
+class controladorPedido extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,7 +20,8 @@ class controladorUser extends Controller
      */
     public function index()
     {
-       
+        $pedidos=Order::orderBy('id','desc')->paginate(5);
+        return view('admin.pedidos.index' compact('pedidos'));
     }
 
     /**
@@ -31,7 +31,7 @@ class controladorUser extends Controller
      */
     public function create()
     {
-         return view('auth.register');
+        //
     }
 
     /**
@@ -40,22 +40,9 @@ class controladorUser extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UsuarioRequest $request)
+    public function store(Request $request)
     {
-        $tipo='usuario';
-        $activo=1;
-        $usuario= new User;
-        $usuario->nombre=$request->nombre;
-        $usuario->apellido=$request->apellido;
-        $usuario->email=$request->email;
-        $usuario->usuario=$request->usuario;
-        $usuario->password=\Hash::make($request->password);
-        $usuario->tipo=$tipo;
-        $usuario->activo=$activo;
-        $usuario->direccion=$request->direccion;
-        $usuario->save();
-        Session::flash('message','El registro fue exitoso');
-        return redirect()->route('home');   
+        //
     }
 
     /**

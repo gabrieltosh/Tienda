@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\CategoriaRequest;
 use App\Http\Controllers\Controller;
 
 use App\Categorias;
@@ -39,12 +40,8 @@ class controladorCategoria extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoriaRequest $request)
     {  
-          $this->validate($request, [
-                'nombre' => 'required|max:255',
-                'color' => 'required'
-            ]);
         $categoria=Categorias::create([
             'nombre'=>$request->get('nombre'),
             'slug'=>str_slug($request->get('nombre')),
@@ -93,12 +90,6 @@ class controladorCategoria extends Controller
         return redirect()->route('panel.categoria.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Categorias $categoria)
     {
         $deleted=$categoria->delete();

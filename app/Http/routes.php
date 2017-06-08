@@ -19,7 +19,9 @@ Route::bind('producto',function($slug)
 Route::bind('categoria',function($categoria){
     return App\Categorias::find($categoria);
 });
-
+Route::bind('usuario',function($usuario){
+    return App\User::find($usuario);
+});
 Route::get('/',[
     'as' => 'home',
     'uses' => 'ControladorTienda@index'
@@ -100,6 +102,7 @@ Route::get('cerrar',[
     'uses'=>'Admin\controladorLogin@logout'
     ]);
 Route::resource('panel/usuario','Admin\controladorUsuario');
+Route::resource('panel/pedido','Admin\controladorPedido');
 Route::resource('panel','Admin\controladorPanel');
 //Injeccion de Dependencias de Categoria
 

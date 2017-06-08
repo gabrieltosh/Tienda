@@ -35,8 +35,8 @@
                                   <td>{{$producto->visible == 1 ? "Si" : "No"}}</td>
                                   <td>{{$producto->created_at}}</td>
                                   <td> 
-                                        {!!Form::open(['route'=>['panel.producto.destroy', $productos], 'method' => 'DELETE'])!!}
-                                        <a href="{{route('panel.producto.edit',$productos)}}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                                        {!!Form::open(['route'=>['panel.producto.destroy', $producto->slug], 'method' => 'DELETE'])!!}
+                                        <a href="{{route('panel.producto.edit',$producto->slug)}}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
                                         <button href="" onclick="return confirm('Eliminar Registro?')" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
                                       {!!Form::close()!!}
                                   </td>

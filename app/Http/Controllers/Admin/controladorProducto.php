@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Productos;
 use App\Categorias;
+use Session;
 
 class controladorProducto extends Controller
 {
@@ -41,7 +42,19 @@ class controladorProducto extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $visible=1;
+        $productos=new Productos;
+        $productos->name=$request->name;
+        $productos->slug=str_slug($request->name);
+        $productos->descripcion=$request->descripcion;
+        $productos->extraer=$request->extraer;
+        $productos->precio=number_format($request->precio,2);
+        $productos->imagen=$request->imagen;
+        $productos->visible=$visible;
+        $productos->categoria_id=$request->categoria_id;
+        $productos->save();
+        Session::flash('message','El registro fue exitoso');
+        return redirect()->route('panel.producto.index');  
     }
 
     /**
@@ -50,9 +63,9 @@ class controladorProducto extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show(Productos $producto)
     {
-        //
+        return $producto;
     }
 
     /**
@@ -61,9 +74,10 @@ class controladorProducto extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Productos $producto)
     {
-        //
+        $categorias=Categorias::orderBy('id','desc')->lists('nombre','id');
+       return view('admin.productos.edit',compact('categorias','producto'));
     }
 
     /**
@@ -73,9 +87,15 @@ class controladorProducto extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Productos $producto)
     {
-        //
+        $visible=1;
+        $producto->fill($request->all());
+        $producto->slug = str_slug($request->get('name'));
+        $producto->visible=$visible;
+        $update = $producto->save();
+        Session::flash('message','La Actualizacion fue exitosa');
+        return redirect()->route('panel.producto.index');
     }
 
     /**
@@ -84,8 +104,10 @@ class controladorProducto extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Productos $producto)
     {
-        //
+        $deleted=$producto->delete();
+        Session::flash('message','El registro fue eliminado correctamente');
+        return redirect()->route('panel.producto.index');
     }
 }
