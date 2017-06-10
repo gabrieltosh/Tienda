@@ -10,9 +10,9 @@
     <title>Panel de Administracion</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="{{asset('../admin/css/bootstrap.css')}}">
+     <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" integrity="sha384-+ENW/yibaokMnme+vBLnHMphUYxHs34h9lpdbSLuAwGkOKFRl4C34WkjazBtb7eT" crossorigin="anonymous">
     <!--external css-->
-    <link rel="stylesheet" href="{{asset('../admin/font-awesome/css/font-awesome.css')}}">
+     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
     <!-- Custom styles for this template 
     <link rel="stylesheet" type="text/css" href="{{asset('../admin/js/bootstrap-datepicker/css/datepicker.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('../admin/js/bootstrap-daterangepicker/daterangepicker.css')}}" />-->
@@ -56,23 +56,27 @@
       <!--footer end-->
   </section>
     <!-- js placed at the end of the document so the pages load faster -->
-    <script src="{{asset('../admin/js/jquery.js')}}"></script>
-    <script src="{{asset('../admin/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('../admin/js/jquery-ui-1.9.2.custom.min.js')}}"></script>
-    <script src="{{asset('../admin/js/jquery.ui.touch-punch.min.js')}}"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" ></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js" ></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.0/jquery.nicescroll.min.js" ></script>
+   <script src="{{asset('../admin/js/form-component.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
     <script class="include" type="text/javascript" src="{{asset('../admin/js/jquery.dcjqaccordion.2.7.js')}}"></script>
-    <script src="{{asset('../admin/js/jquery.scrollTo.min.js')}}"></script>
-    <script src="{{asset('../admin/js/jquery.nicescroll.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js"></script>
 
 
+    
     <!--common script for all pages-->
     <script src="{{asset('../admin/js/common-scripts.js')}}"></script>
-    <script src="{{asset('../admin/js/bootstrap-switch.js')}}"></script>
-    <script src="{{asset('../admin/js/jquery.tagsinput.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.4/js/bootstrap-switch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-tagsinput/1.3.6/jquery.tagsinput.min.js"></script>
     <!--script for this page-->
-    <script src="{{asset('../admin/js/bootstrap-datepicker/js/bootstrap-datepicker.js')}}"></script>
-        <script src="{{asset('../admin/js/bootstrap-daterangepicker/date.js')}}"></script>       <script src="{{asset('../admin/js/bootstrap-inputmask/bootstrap-inputmask.min.js')}}"></script>
-      <script src="{{asset('../admin/js/form-component.js')}}"></script>
-        <script src="{{asset('../admin/js/zabuto_calendar.js')}}"></script>
+    <script src="{{asset('../admin/js/bootstrap-inputmask/bootstrap-inputmask.min.js')}}"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/zabuto_calendar/1.2.1/zabuto_calendar.min.js"></script>
+        <script src="{{asset('../admin/js/main.js')}}"></script>
   </body>
 </html>

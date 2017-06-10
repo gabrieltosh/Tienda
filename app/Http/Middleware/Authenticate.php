@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
+use Session;
 
 class Authenticate
 {
@@ -38,8 +39,13 @@ class Authenticate
             if ($request->ajax()) {
                 return response('Unauthorized.', 401);
             } else {
-                return redirect()->guest('auth/login');
+                return redirect()->guest('panel/login');
             }
+        }
+        if(auth()->user()->tipo !='admin')
+        {
+            Session::flash('message','Permiso Denegado No eres un administrador');
+            return redirect()->route('panel.login.index');
         }
 
         return $next($request);

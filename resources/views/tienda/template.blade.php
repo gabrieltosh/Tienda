@@ -13,13 +13,31 @@
 <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Holtwood+One+SC' rel='stylesheet' type='text/css'>
 
+
+<!--[if lt IE 9]>
+<script src="js/html5.js"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="css/ie.css">
+<![endif]-->
+</head>
+<body>
+
+   @include('tienda.parcial.nav')
+
+ 
+    @yield('contenido')
+
+  <!--==============================content================================-->
+
+    @include('tienda.parcial.footer')
+<!--==============================footer=================================-->
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" ></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     
 <script src="{{asset('js/main.js')}}"></script>
 <script src="{{asset('js/jquery-1.7.min.js')}}"></script>
-<script src="{{asset('js/jquery.easing.1.3.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 <script src="{{asset('js/tms-0.4.1.js')}}"></script>
 
 
@@ -45,21 +63,6 @@ $(document)
     })
 });
 </script>
-<!--[if lt IE 9]>
-<script src="js/html5.js"></script>
-<link rel="stylesheet" type="text/css" media="screen" href="css/ie.css">
-<![endif]-->
-</head>
-<body>
-
-   @include('tienda.parcial.nav')
-
- 
-    @yield('contenido')
-
-  <!--==============================content================================-->
-
-    @include('tienda.parcial.footer')
-<!--==============================footer=================================-->
 </body>
+
 </html>

@@ -29,6 +29,9 @@
 		        <div class="login-wrap">
 		        	@include('tienda.parcial.errors') 
             		@include('alerts.errors')
+            		 @if(\Session::has('message'))
+                      @include('admin.parcial.message')
+                  @endif  
 		            <input type="email"  name="email" class="form-control" placeholder="Ingrese su Correo" value="{{ old('email') }}">
 		            <br>
 		            <input type="password" class="form-control" placeholder="Ingrese su Contraseña" name="password">

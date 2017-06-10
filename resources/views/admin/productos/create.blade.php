@@ -6,7 +6,7 @@
           	<div class="row mt">
           		<div class="col-lg-12">
                   <div class="form-panel">
-                      {!!Form::open(['route'=>'panel.producto.store','method'=>'POST','class'=>'form-horizontal style-form'])!!} 
+                      {!!Form::open(['route'=>'panel.producto.store','method'=>'POST','class'=>'form-horizontal style-form','files'=>true])!!} 
                             @include('tienda.parcial.errors') 
                       <h3 class="text-center"><i class="fa fa-user"></i> Registro de Producto</h3>
                         @include('admin.productos.form')

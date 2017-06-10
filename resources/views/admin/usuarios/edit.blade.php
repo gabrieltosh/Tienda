@@ -5,7 +5,7 @@
             <div class="row mt">
               <div class="col-lg-12">
                   <div class="form-panel">
-                      {!!Form::model($usuario, ['route' => ['panel.usuario.update', $usuario],'class'=>'form-horizontal style-form','method'=>'PUT'])!!}
+                      {!!Form::model($usuario, ['route' => ['panel.usuario.update', $usuario],'class'=>'form-horizontal style-form','method'=>'PUT','files'=>true])!!}
                             @include('tienda.parcial.errors') 
                       <h3 class="text-center"><i class="fa fa-user"></i> Edicion de Usuario</h3>
                         @include('admin.usuarios.form')

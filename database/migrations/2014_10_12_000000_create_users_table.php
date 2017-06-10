@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('usuario',50);
             $table->string('password',60);
+            $table->string('imagen',300);
             $table->enum('tipo',['usuario','admin']);
             $table->boolean('activo');
             $table->text('direccion');

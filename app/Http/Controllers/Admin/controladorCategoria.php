@@ -12,11 +12,9 @@ use App\Categorias;
 use Session;
 class controladorCategoria extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct(){
+        $this->middleware('auth');
+    }
     public function index()
     {
         $categorias=Categorias::orderBy('id','desc')->paginate(5);
@@ -45,8 +43,7 @@ class controladorCategoria extends Controller
         $categoria=Categorias::create([
             'nombre'=>$request->get('nombre'),
             'slug'=>str_slug($request->get('nombre')),
-            'descripcion'=>$request->get('descripcion'),
-            'color'=>$request->get('color'),
+            'descripcion'=>$request->get('descripcion')
             ]);
         Session::flash('message','El registro fue exitoso');
         return redirect()->route('panel.categoria.index');

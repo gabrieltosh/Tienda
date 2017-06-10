@@ -18,7 +18,6 @@ class tablaCategoriasSeeder extends Seeder
             'nombre'=>'SuperHeroes',
             'slug'=>'SuperHeroes',
             'descripcion'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo illo pariatur illum labore at cum, nihil ut rem, commodi quia impedit sapiente ea, obcaecati cupiditate quam, ex corporis aut totam.',
-            'color' =>'#440022',
             'created_at'=>new DateTime,
             'updated_at'=>new DateTime,
             'deleted_at'=>null
@@ -27,7 +26,6 @@ class tablaCategoriasSeeder extends Seeder
             'nombre'=>'Anime',
             'slug'=>'Anime',
             'descripcion'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo illo pariatur illum labore at cum, nihil ut rem, commodi quia impedit sapiente ea, obcaecati cupiditate quam, ex corporis aut totam.',
-            'color' =>'#440022',
             'created_at'=>new DateTime,
             'updated_at'=>new DateTime,
             'deleted_at'=>null

@@ -94,6 +94,7 @@ Route::get('payment/status',array(
 ));
 
 //ADMIN
+
 Route::resource('panel/producto','Admin\controladorProducto');
 Route::resource('panel/categoria','Admin\controladorCategoria');
 Route::resource('panel/login','Admin\controladorLogin');
@@ -103,6 +104,18 @@ Route::get('cerrar',[
     ]);
 Route::resource('panel/usuario','Admin\controladorUsuario');
 Route::resource('panel/pedido','Admin\controladorPedido');
+Route::get('panel/order',[
+    'as' => 'panel.order.index',
+    'uses' => 'Admin\controladorOrden@index',
+]);
+Route::post('panel/order/items',[
+    'as' => 'panel.order.items',
+    'uses' => 'Admin\controladorOrden@items',
+]);
+Route::get('panel/order/{id}',[
+    'as' => 'panel.order.destroy',
+    'uses' => 'Admin\controladorOrden@destroy',
+]);
 Route::resource('panel','Admin\controladorPanel');
 //Injeccion de Dependencias de Categoria
 

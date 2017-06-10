@@ -31,7 +31,7 @@
                                   <td>{{$producto->descripcion}}</td>
                                   <td>{{$producto->extraer}}</td>
                                   <td>${{number_format($producto->precio,2)}}</td>
-                                  <td><img src="{{$producto->imagen}}" alt="" width="50"></td> 
+                                  <td><img src="../images/{{$producto->imagen}}" alt="" width="50"></td> 
                                   <td>{{$producto->visible == 1 ? "Si" : "No"}}</td>
                                   <td>{{$producto->created_at}}</td>
                                   <td> 

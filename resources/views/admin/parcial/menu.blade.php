@@ -3,7 +3,7 @@
               <ul class="sidebar-menu" id="nav-accordion">            
               	  <p class="centered">
                       <a href="profile.html">
-                          <img src="http://slipkorn.files.wordpress.com/2007/07/avatar-south-park.jpg" class="img-circle" width="60">
+                          <img src="{{asset('../images/')}}/{!!Auth::user()->imagen!!}" class="img-circle" width="60">
                       </a>
                   </p>
               	  <h5 class="centered">{!!strtoupper(Auth::user()->nombre)!!} {!!strtoupper(Auth::user()->apellido)!!}</h5>
@@ -53,7 +53,7 @@
                           <span>Pedidos</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="form_component.html">Mostrar Pedidos</a></li>
+                          <li><a  href="{{route('panel.order.index')}}">Mostrar Pedidos</a></li>
                       </ul>
                   </li>
               </ul>

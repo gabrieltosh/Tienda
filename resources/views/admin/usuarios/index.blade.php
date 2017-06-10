@@ -15,6 +15,7 @@
                                <tr>
                                   <th><i class="fa fa-edit"></i> Nombre</th>
                                   <th><i class="fa fa-edit"></i> Apellido</th>
+                                  <th><i class="fa fa-edit"></i> Imagen</th>
                                   <th><i class="fa fa-edit"></i> Email</th>
                                   <th><i class="fa fa-edit"></i> Usuario</th>
                                   <th><i class="fa fa-edit"></i> Tipo</th>
@@ -29,6 +30,7 @@
                               <tr> 
                                   <td>{{$usuario->nombre}}</td>
                                   <td>{{$usuario->apellido}}</td>
+                                  <td><img src="../images/{{$usuario->imagen}}" alt="" width="50"></td> 
                                   <td>{{$usuario->email}}</td>
                                   <td>{{$usuario->usuario}}</td>
                                   @if($usuario->tipo=='admin')

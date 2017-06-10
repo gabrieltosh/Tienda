@@ -11,4 +11,12 @@ class OrderItem extends Model
     protected $fillable=['precio','cantidad','producto_id','orden_id'];
 
     public $timestamps=false;
+    public function orden()
+    {
+    	return $this->belongsTo('App\Order');
+    }
+    public function producto()
+    {
+    	return $this->belongsTO('App\Productos');
+    }
 }

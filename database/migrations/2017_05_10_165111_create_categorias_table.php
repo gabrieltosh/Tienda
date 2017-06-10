@@ -13,7 +13,6 @@ class CreateCategoriasTable extends Migration
             $table->string('nombre',255);
             $table->string('slug',255);
             $table->text('descripcion');
-            $table->string('color');
             $table->timestamps();
             $table->SoftDeletes();
         });

@@ -15,7 +15,6 @@
                                   <th><i class="fa fa-edit"></i> Nombre</th>
                                   <th><i class="fa fa-edit"></i> Slug</th>
                                   <th width="500px"><i class="fa fa-edit"></i> Descripcion</th>
-                                  <th><i class="fa fa-edit"></i> Color</th>
                                   <th><i class="fa fa-edit"></i> Fecha de Creacion</th>
                                   <th><i class="fa fa-edit"></i> Acciones</th>
                               </tr>
@@ -26,7 +25,6 @@
                                   <td>{{$categoria->nombre}}</td>
                                   <td>{{$categoria->slug}}</td>
                                   <td width="500px">{{$categoria->descripcion}}</td>
-                                  <td>{{$categoria->color}}</td>
                                   <td>{{$categoria->created_at}}</td> 
                                   <td> 
                                         {!!Form::open(['route'=>['panel.categoria.destroy', $categoria], 'method' => 'DELETE'])!!}
